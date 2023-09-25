@@ -1,0 +1,18 @@
+body{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #242424;
+}
+
+.snake--wrapper{
+    text-align: center;
+}
+.snake--wrapper p{
+    position: relative;
+    top: 0;
+    left: 0;
+}
+.canvas{
+    width: 100%;
+}

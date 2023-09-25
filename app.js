@@ -35,12 +35,14 @@ function draw() {
 // Point counter
 
 
-//function updateScore(){
-////if(foodCollected){
- //// playerScorePara.textContent = `Player: ${playerScore}`;
-//} 
+function updateScore(){
+  const playerScorePara = document.querySelector('.playerScore'); // Use querySelector to select the element by its class
+  if(foodCollected){
+    playerScore += 1;
+    playerScorePara.textContent = `Player: ${playerScore}`;
+  } 
+}
 
-console.log(playerScore)
 
 
 
@@ -63,6 +65,9 @@ function testGameOver() {
     placeFood();
     snake = [{ x: 19, y: 3 }];
     direction = "LEFT";
+    playerScore = 0;
+    const playerScorePara = document.querySelector('.playerScore');
+    playerScorePara.textContent = `Player: ${playerScore}`;
   }
 }
 
@@ -95,7 +100,7 @@ function shiftSnake() {
 function gameLoop() {
   
   testGameOver();
-  // updateScore();
+  updateScore();
   if (foodCollected) {
     snake = [{ x: snake[0].x, y: snake[0].y }, ...snake];
     foodCollected = false;
@@ -137,8 +142,5 @@ function keyDown(e) {
   }
   const playerScorePara = document.getElementsByClassName('playerScore');
 
-if(foodCollected){
-  playerScore += 1;
-  playerScorePara.textContent = `Player: ${playerScore}`;
-} 
+
 }
