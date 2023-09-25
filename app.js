@@ -10,8 +10,9 @@ let direction = "LEFT";
 let foodCollected = false;
 let playerScore = 0;
 
+
 placeFood();
-//setInterval(gameLoop, 150);
+setInterval(gameLoop, 150);
 document.addEventListener("keydown", keyDown);
 draw();
 
@@ -34,19 +35,14 @@ function draw() {
 // Point counter
 
 
-function updateScore(){
-const playerScorePara = document.getElementsByClassName('playerScore');
-
-if(foodCollected){
-  playerScore += 1;
-  playerScorePara.textContent = `Player: ${playerScore}`;
-} else if(testGameOver() == true){
-    playerScore = playerScore
-}
+//function updateScore(){
+////if(foodCollected){
+ //// playerScorePara.textContent = `Player: ${playerScore}`;
+//} 
 
 console.log(playerScore)
-}
-updateScore()
+
+
 
 
 
@@ -99,7 +95,7 @@ function shiftSnake() {
 function gameLoop() {
   
   testGameOver();
-  updateScore();
+  // updateScore();
   if (foodCollected) {
     snake = [{ x: snake[0].x, y: snake[0].y }, ...snake];
     foodCollected = false;
@@ -139,4 +135,10 @@ function keyDown(e) {
   if (e.keyCode == 40) {
     direction = "DOWN";
   }
+  const playerScorePara = document.getElementsByClassName('playerScore');
+
+if(foodCollected){
+  playerScore += 1;
+  playerScorePara.textContent = `Player: ${playerScore}`;
+} 
 }
